@@ -1,9 +1,7 @@
 from pymongo import MongoClient
+import os
 
 # === CONFIGURATION ===
-
-# MongoDB URI for local development (default: localhost:27017, no authentication)
-MONGO_URI = "mongodb+srv://calhounbryce13:T4113ngr10010137@mycluster1.iv9rj.mongodb.net/Planner-io?retryWrites=true&w=majority&appName=MyCluster1"
 
 # Database and collection
 DATABASE_NAME = "Planner-io"
@@ -11,7 +9,7 @@ USER_COLLECTION = "user-data"
 
 # === CONNECTION SETUP ===
 
-client = MongoClient(MONGO_URI)
+client = MongoClient(os.environ.get('MONGODB_CONNECTION_STRING'))
 db = client[DATABASE_NAME]
 users = db[USER_COLLECTION]
 
