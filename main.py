@@ -1,3 +1,7 @@
+"""
+! THIS CODE WAS WRITTEN BY A FRIEND ON A COLLABORATIVE PROJECT, THIS IS NOT MY CODE !
+"""
+
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
 from typing import Optional
@@ -6,6 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 # Create the FastAPI application instance
 app = FastAPI()
 
+
+##! need to allow for both origins here (frontend and project mgmt service)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://127.0.0.1:5500"], 
