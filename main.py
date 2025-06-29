@@ -35,7 +35,7 @@ async def deletion_handler(request: Request, body: Optional[DeletionRequest] = N
     print("here")
     if request.method == "OPTIONS":
         headers = {
-            "Access-Control-Allow-Origin": "https://calhounbryce13.github.io/",
+            "Access-Control-Allow-Origin": "https://calhounbryce13.github.io",
             "Access-Control-Allow-Methods": "DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, x-User-Email",
             "Access-Control-Allow-Credentials": "true",
