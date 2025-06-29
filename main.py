@@ -2,7 +2,7 @@
 ! THIS CODE WAS WRITTEN BY A FRIEND ON A COLLABORATIVE PROJECT, THIS IS NOT MY CODE !
 """
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, Response
 from pydantic import BaseModel, Field
 from typing import Optional
 from database import delete_user, delete_project_by_group, delete_subtask_by_index
@@ -33,6 +33,14 @@ class DeletionRequest(BaseModel):
 @app.delete("/deletion")
 async def deletion_handler(request: Request, body: Optional[DeletionRequest] = None):
     print("here")
+    if request.method == "OPTIONS":
+        headers = {
+            "Access-Control-Allow-Origin": "https://calhounbryce13.github.io/",
+            "Access-Control-Allow-Methods": "DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, x-User-Email",
+            "Access-Control-Allow-Credentials": "true",
+        }
+        return Response(status_code=200, headers=headers)
     # Get user email from the custom header "x-user-email"
     user_email = request.headers.get("x-user-email")
     if not user_email:
