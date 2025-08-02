@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 
-##! need to allow for both origins here (frontend and project mgmt service)
+##! need to allow for both origins here (frontend and project mgmt service) if on different origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://calhounbryce13.github.io"], 
